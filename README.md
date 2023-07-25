@@ -1,7 +1,5 @@
-0x00. Pagination
-Back-end
-
-# Pagination
+## ALX Backend projects
+# 1 - Pagination
 Most endpoints that returns a list of entities will need to have some
 sort of pagination.
 
@@ -11,4 +9,3 @@ billions of hits causing extraneous network traffic.
 Paging requires an implied ordering. By default this maybe the item’s
 unique identifier, but can be other ordered fields such as a 
 created date.
-
