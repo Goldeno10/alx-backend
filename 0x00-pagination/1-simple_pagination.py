@@ -1,4 +1,4 @@
-#!/usr/bin/env  python3
+#!/usr/bin/env python3
 """
 Task:
     Copy index_range from the previous task and the following class into your code
