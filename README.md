@@ -1,5 +1,5 @@
 ## ALX Backend projects
-# 1 - Pagination
+# 0x00 Pagination
 Most endpoints that returns a list of entities will need to have some
 sort of pagination.
 
