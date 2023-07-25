@@ -1,6 +1,4 @@
-0x00. Pagination
-Back-end
-
+### 0x00. Pagination
 # Pagination
 Most endpoints that returns a list of entities will need to have some
 sort of pagination.
