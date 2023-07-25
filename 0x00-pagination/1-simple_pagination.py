@@ -56,7 +56,10 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-
+        """
+        Returns dataset, If the input arguments are out of range
+         for the dataset, an empty list should be returned.
+        """
         try:
             data: List[List] = self.dataset()
             assert isinstance(page, int) and page > 0
