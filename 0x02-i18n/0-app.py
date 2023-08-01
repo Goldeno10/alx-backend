@@ -4,11 +4,11 @@
 from flask import Flask, render_template
 
 
-app = Flask(__name__)
+app: Flask = Flask(__name__)
 
 
 @app.route('/')
-def index():
+def index() -> str:
     """Return the index page"""
     return render_template('templates/0-index.html')
 
