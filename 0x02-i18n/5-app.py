@@ -3,7 +3,7 @@
 
 from flask import Flask, g, render_template, request
 from flask_babel import Babel, _
-from typing import Dict
+from typing import Any, Dict
 
 
 app: Flask = Flask(__name__)
@@ -29,7 +29,7 @@ users: Dict[int, Dict] = {
 }
 
 
-def get_user(user_id) -> int:
+def get_user(user_id) -> dict[Any, Any] | None:
     """Gets a user with a particular Id"""
     return users.get(user_id)
 
@@ -37,13 +37,13 @@ def get_user(user_id) -> int:
 @app.before_request
 def before_request() -> None:
     """Set the user data as a global on flask.g.user."""
-    user_id = request.args.get('login_as', type=int)
+    user_id: int | None = request.args.get('login_as', type=int)
 
     g.user = get_user(user_id)
 
 
 @babel.localeselector
-def get_locale() -> str:
+def get_locale() -> str | None:
     """Gets best match language"""
     requested_locale = request.args.get('locale')
 
@@ -54,7 +54,7 @@ def get_locale() -> str:
 
 
 @app.route('/')
-def index() -> str:
+def index() -> tuple[str, int, dict[str, str | None]] | str:
     """Return the index page"""
     requested_locale = request.args.get('locale')
 
