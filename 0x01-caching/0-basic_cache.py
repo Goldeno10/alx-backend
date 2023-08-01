@@ -24,6 +24,10 @@ class BasicCache(BaseCaching):
     """
     Inherits from BaseCaching and is a caching system
     """
+    def __init__(self):
+        """Object initialiser method"""
+        super().__init__()
+
     def put(self, key, item):
         """Add an item in the cache """
         if key is not None and item is not None:
