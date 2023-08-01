@@ -29,7 +29,7 @@ users: Dict[int, Dict] = {
 }
 
 
-def get_user(user_id):
+def get_user(user_id) -> int:
     """Gets a user with a particular Id"""
     return users.get(user_id)
 
