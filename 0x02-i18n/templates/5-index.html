@@ -5,9 +5,8 @@
 </head>
 <body>
     <h1>{{ _('home_header') }} hmmmm</h1>
-    <h1>hey</h1>
-    <p>p tag
-        {% if flask.g.user %}
+    <p>
+        {% if g.user %}
             {{ _('logged_in_as', username=g.user['name']) }}
         {% else %}
             {{ _('not_logged_in') }}

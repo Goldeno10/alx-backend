@@ -43,7 +43,7 @@ def before_request() -> None:
 
 
 @babel.localeselector
-def get_locale() -> str | None:
+def get_locale() -> str:
     """Gets best match language"""
     requested_locale = request.args.get('locale')
 
@@ -54,7 +54,7 @@ def get_locale() -> str | None:
 
 
 @app.route('/')
-def index() -> tuple[str, int, dict[str, str | None]] | str:
+def index() -> str:
     """Return the index page"""
     requested_locale = request.args.get('locale')
 
