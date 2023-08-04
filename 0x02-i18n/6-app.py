@@ -29,7 +29,7 @@ users: Dict[int, Dict] = {
 }
 
 
-def get_user(user_id) -> Dict[int, Any] | None:
+def get_user(user_id) -> dict[Any, Any] | None:
     """Gets a user with a particular Id"""
     return users.get(user_id)
 
@@ -49,6 +49,16 @@ def get_locale() -> str:
 
     if requested_locale in app.config['LANGUAGES']:
         return requested_locale
+    
+    # Check for locale from user settings
+    if g.user and g.user.get('locale') in app.config['LANGUAGES']:
+        return g.user['locale']
+    
+    # Check for locale from request header
+    header_locale = request.accept_languages.best_match(app.config['LANGUAGES'])
+    if header_locale:
+        return header_locale
+
 
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
@@ -62,7 +72,7 @@ def index() -> str:
         return render_template('5-index.html'), 200, {'Content-Language':
                                                       requested_locale}
 
-    return render_template('5-index.html')
+    return render_template('4-index.html')
 
 
 if __name__ == '__main__':
